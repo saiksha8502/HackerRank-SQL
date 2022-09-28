@@ -1,0 +1,6 @@
+select f1.X, f1.Y from Functions f1
+where exists( select * from Functions f2 where (f1.X=f2.Y and f2.X=f1.Y)) and f1.X<f1.Y
+union
+select f1.X, f1.Y from Functions f1
+where f1.X=f1.Y and (select count(*) from Functions where X=f1.X and Y=f1.X)>1
+order by X;

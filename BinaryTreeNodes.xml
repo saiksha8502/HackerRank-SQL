@@ -1,0 +1,6 @@
+SELECT N,
+  IF( P IS NULL, 'Root', 
+     IF ((SELECT COUNT(*) FROM BST WHERE B.N = P) > 0, 'Inner', 'Leaf')
+    ) AS PLACE
+FROM BST B
+ORDER BY N;

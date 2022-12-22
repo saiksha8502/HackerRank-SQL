@@ -1,5 +1,6 @@
 SELECT min(Doctor), min(Professor), min(Singer), min(Actor)
 FROM
+
 ( Select
 ROW_NUMBER() OVER (PARTITION BY Occupation order by Name) rn, 
 CASE 
